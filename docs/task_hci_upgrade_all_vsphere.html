@@ -50,10 +50,10 @@
   
   <link rel="stylesheet" href="/us-en/hci/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/us-en/hci/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/us-en/hci/css/product-family.css' type="text/css">
   <link rel='stylesheet' href='/us-en/hci/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/us-en/hci/js/na-search.js'></script><script src='/us-en/hci/js/na-pagenav.js'></script><link rel='stylesheet' href='/us-en/hci/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/us-en/hci/css/prism-netapp.css' type='text/css'>
 
@@ -131,7 +131,6 @@
   }
   </script>
   <script src='/us-en/hci/js/version-dropdown.js'></script>
-  <script src='/us-en/hci/js/product-family.js'></script>
   <script src='/us-en/hci/js/FileSaver.min.js'></script>
   <script src='/us-en/hci/js/jszip-utils.min.js'></script>
   <script src='/us-en/hci/js/jszip.min.js'></script>
@@ -144,6 +143,25 @@
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Upgrade your vSphere components for a NetApp HCI system with the Element Plug-in for vCenter Server](https://docs.netapp.com/us-en/hci/docs/task_hci_upgrade_all_vsphere.html)" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/discuss-sm.svg" class="github-icon" />Request doc changes</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/main/docs/task_hci_upgrade_all_vsphere.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/edit-sm.svg" class="github-icon" />Edit this page</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/hci/images/article-sm.svg" class="github-icon" />Learn how to contribute</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">ON THIS PAGE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -1647,19 +1665,16 @@
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">Home</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">Documentation</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/us-en/hci/">HCI</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          Upgrade your vSphere components for a NetApp HCI system with the Element Plug-in for vCenter Server
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -1674,7 +1689,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-08 10:00:19 +0000">03/08/2022</time>
+    <time datetime="2022-03-11 15:45:41 +0000">03/11/2022</time>
     
   
 
@@ -1684,6 +1699,14 @@
           alt="dbag-personal"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/56609800?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-pcarriga">
+    <img  class="avatar avatar-small"
+          alt="netapp-pcarriga"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/77334475?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -1708,7 +1731,6 @@
 
 </p>
 
-
 <div class="paragraph lead">
 <p>When you upgrade the VMware vSphere components of your NetApp HCI installation, there are some additional steps you will need to take for the Element Plug-in for vCenter Server.</p>
 </div>
@@ -1723,6 +1745,18 @@
 </li>
 <li>
 <p><a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vcenter.upgrade.doc/GUID-7AFB6672-0B0B-4902-B254-EE6AE81993B2.html" target="_blank" rel="noopener">Upgrade vSphere, including vCenter Server, ESXi, VMs, and other VMware components</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci/images/important.svg" alt="Important">
+</td>
+<td class="content">
+When you upgrade to VMware vCenter Server 7.0 U3, all versions of the NetApp Element Plug-in for vCenter Server fail to deploy. To resolve this issue, see <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3" target="_blank" rel="noopener">this KB article</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1769,25 +1803,6 @@ When upgrading ESXi for compute nodes for a <a href="https://www.netapp.com/us/m
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Upgrade your vSphere components for a NetApp HCI system with the Element Plug-in for vCenter Server](https://docs.netapp.com/us-en/hci/docs/task_hci_upgrade_all_vsphere.html)" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/discuss-sm.svg" class="github-icon" />Request doc changes</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/main/docs/task_hci_upgrade_all_vsphere.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/edit-sm.svg" class="github-icon" />Edit this page</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/hci/images/article-sm.svg" class="github-icon" />Learn how to contribute</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">ON THIS PAGE</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
   <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>

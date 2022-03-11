@@ -50,10 +50,10 @@
   
   <link rel="stylesheet" href="/us-en/hci/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/us-en/hci/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/us-en/hci/css/product-family.css' type="text/css">
   <link rel='stylesheet' href='/us-en/hci/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/us-en/hci/js/na-search.js'></script><script src='/us-en/hci/js/na-pagenav.js'></script><link rel='stylesheet' href='/us-en/hci/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/us-en/hci/css/prism-netapp.css' type='text/css'>
 
@@ -131,7 +131,6 @@
   }
   </script>
   <script src='/us-en/hci/js/version-dropdown.js'></script>
-  <script src='/us-en/hci/js/product-family.js'></script>
   <script src='/us-en/hci/js/FileSaver.min.js'></script>
   <script src='/us-en/hci/js/jszip-utils.min.js'></script>
   <script src='/us-en/hci/js/jszip.min.js'></script>
@@ -144,6 +143,25 @@
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Management node requirements](https://docs.netapp.com/us-en/hci/docs/hci_prereqs_management_node.html)" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/discuss-sm.svg" class="github-icon" />Request doc changes</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/main/docs/hci_prereqs_management_node.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/edit-sm.svg" class="github-icon" />Edit this page</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/hci/images/article-sm.svg" class="github-icon" />Learn how to contribute</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">ON THIS PAGE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -1647,19 +1665,16 @@
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">Home</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">Documentation</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/us-en/hci/">HCI</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          Management node requirements
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -1674,7 +1689,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-08 10:00:19 +0000">03/08/2022</time>
+    <time datetime="2022-03-11 15:45:41 +0000">03/11/2022</time>
     
   
 
@@ -1692,7 +1707,6 @@
 
 </p>
 
-
 <div class="paragraph lead">
 <p>As a best practice, only associate one management node with one VMware vCenter instance, and avoid defining the same storage and compute resources or vCenter instances in multiple management nodes. Defining the same resources in multiple management nodes can cause problems such as incorrect resource reporting in NetApp ActiveIQ.</p>
 </div>
@@ -1701,25 +1715,6 @@
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Management node requirements](https://docs.netapp.com/us-en/hci/docs/hci_prereqs_management_node.html)" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/discuss-sm.svg" class="github-icon" />Request doc changes</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/main/docs/hci_prereqs_management_node.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/hci/images/edit-sm.svg" class="github-icon" />Edit this page</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/hci/images/article-sm.svg" class="github-icon" />Learn how to contribute</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">ON THIS PAGE</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
   <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>
