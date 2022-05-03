@@ -44,6 +44,9 @@ IMPORTANT: The IPv6 options are not supported for 11.3 or later versions of the 
 
 .. *MTU*: Largest packet size that a network protocol can transmit. Must be greater than or equal to 1500. If you add a second storage NIC, the value should be 9000.
 .. *DNS Servers*: Network interface used for cluster communication.
+
+NOTE: mNode may need to be restarted for DNS server changes to take effect.
+
 .. *Search Domains*: Search for additional MAC addresses available to the system.
 .. *Status*: Possible values:
 +
